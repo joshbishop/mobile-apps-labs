@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.SeekBar;
 
 public class MainActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
@@ -20,7 +21,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Get the text box on the MainActivity activity to forward its text
         EditText editText = (EditText) findViewById(R.id.edit_message);
-        String message = editText.getText().toString();
+        String message = "Message: " + editText.getText().toString();
+
+        //Get the seekbars value
+        SeekBar seekBar = (SeekBar) findViewById(R.id.seek_bar);
+        Integer value = seekBar.getProgress();
+        message += "\nSeekbar Value: " + value.toString();
+
 
         //Add the text from to the intent and fire the intent
         intent.putExtra(EXTRA_MESSAGE, message);
